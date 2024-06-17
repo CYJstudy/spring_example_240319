@@ -18,4 +18,65 @@
 		WHERE
 			`id` = #{id}
 	</select>
+	<!-- 3강 2-1 -->
+	<insert id="insertReview" parameterType="com.example.lesson03.domain.Review">
+		INSERT INTO `new_review`
+		(
+			`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, NOW()
+			, NOW()
+		)
+	</insert>
+	<!-- 3강 2-2 -->
+	<insert id="insertReviewAsField" parameterType="map">
+		INSERT INTO `new_review`
+		(
+			`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{storeId}
+			, #{menu}
+			, #{userName}
+			, #{point}
+			, #{review}
+			, NOW()
+			, NOW()
+		)
+	</insert>
+	
+	<!-- 3강 3 -->
+	<update id="updateReivewById" parameterType="map">
+		UPDATE `new_review`
+		SET
+			`review` = #{review}
+			, `updatedAt` = NOW()
+		WHERE
+			`id` = #{id}
+	</update>
 </mapper>
+
+
+
+
+
