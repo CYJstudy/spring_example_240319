@@ -74,6 +74,15 @@
 		WHERE
 			`id` = #{id}
 	</update>
+	
+	<!-- 3강 4 -->
+	<delete id="deleteReviewById" parameterType="int">
+		DELETE
+		FROM
+			`new_review`
+		WHERE
+			`id` = #{id}
+	</delete>
 </mapper>
 
 
