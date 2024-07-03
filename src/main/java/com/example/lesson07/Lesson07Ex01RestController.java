@@ -15,7 +15,7 @@ public class Lesson07Ex01RestController {
 	@Autowired
 	private StudentBO studentBO;
 	
-	// C: create
+	// C: Create
 	@GetMapping("/create")
 	public StudentEntity create() {
 		String name = "박진아";
@@ -25,4 +25,27 @@ public class Lesson07Ex01RestController {
 		
 		return studentBO.addStudent(name, phoneNumber, email, dreamJob);
 	}
+	
+	// U: Update
+	@GetMapping("/update")
+	public StudentEntity update() {
+		// id가 7번인 dreamJob 변경(기획자)
+		return studentBO.updateStudentDreamJobById(7, "기획자");
+	}
+	
+	// D: Delete
+	@GetMapping("/delete")
+	public String delete() {
+		// id가 8인 데이터 삭제
+		studentBO.deleteStudentById(8);
+		
+		return "삭제 성공";
+	}
 }
+
+
+
+
+
+
+
